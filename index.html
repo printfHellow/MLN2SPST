@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MLN122</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <audio id="bgMusic" loop>
+        <source src="alexgrohl-metal-dark-matter-111451.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="winSound" preload="auto">
+        <source src="superpuyofans1234-winner-game-sound-404167.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="loseSound" preload="auto">
+        <source src="alphix-game-over-417465.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="laserSound" preload="auto">
+        <source src="freesound_community-laser-gun-81720.mp3" type="audio/mpeg">
+    </audio>
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
+
+    <div id="introOverlay" class="overlay intro-overlay">
+        <h2>MLN122</h2>
+        <p>Game bắn gà kết hợp trả lời câu hỏi trắc nghiệm để luyện kiến thức và phản xạ.</p>
+        <p>Hãy tránh đạn, bắn gà để kiếm điểm và vượt qua các Boss câu hỏi!</p>
+        <button class="menu-btn" id="introClose">Vào menu</button>
+    </div>
+
+    <div id="menu" style="display:none">
+        <h1>MLN122</h1>
+        <button class="menu-btn" id="startBtn">Bắt đầu chơi</button>
+        <button class="menu-btn" id="settingsBtn">Cài đặt</button>
+        <button class="menu-btn" id="creditsBtn">Credits</button>
+    </div>
+    <div id="pauseUI" class="pause-ui">
+        <button id="pauseBtn" class="pause-btn-small">⏸</button>
+        <button id="resumeBtn" class="resume-btn-small" style="display:none">▶</button>
+        <button id="menuBtn" class="pause-btn-small">☰</button>
+    </div>
+    <div id="settingsOverlay" class="overlay">
+        <h2>Cài đặt</h2>
+        <p>Điều khiển: Mũi tên hoặc WASD để di chuyển</p>
+        <p>Phím Space để bắn</p>
+        <p>Trả lời đúng câu hỏi Boss để tiến xa hơn!</p>
+        <div class="settings-slider-row">
+            <label for="musicVolume">Âm lượng nhạc nền</label>
+            <input type="range" id="musicVolume" min="0" max="100" value="50">
+        </div>
+        <button class="menu-btn closeBtn" id="settingsClose">Đóng</button>
+    </div>
+    <div id="creditsOverlay" class="overlay">
+        <h2>Credits</h2>
+        <p>MLN122</p>
+        <p>Game giáo dục kết hợp bắn súng và trả lời câu hỏi</p>
+        <p>Chúc bạn chơi vui vẻ!</p>
+        <button class="menu-btn closeBtn" id="creditsClose">Đóng</button>
+    </div>
+    <div id="confirmMenuOverlay" class="overlay">
+        <h2>Trở về menu chính?</h2>
+        <p>Tiến trình ván chơi hiện tại sẽ bị mất.</p>
+        <div class="confirm-buttons">
+            <button class="menu-btn" id="confirmMenuYes">Đồng ý</button>
+            <button class="menu-btn closeBtn" id="confirmMenuNo">Hủy</button>
+        </div>
+    </div>
+    <div id="loseUI" class="end-ui">
+        <h2>GAME OVER</h2>
+        <p class="end-score">Điểm: <span id="loseScore">0</span></p>
+        <button class="menu-btn" id="retryBtn">Chơi lại</button>
+        <button class="menu-btn" id="backToMenuLose">Về menu</button>
+    </div>
+    <div id="winUI" class="end-ui">
+        <h2>CHIẾN THẮNG!</h2>
+        <p class="end-score">Điểm: <span id="winScore">0</span></p>
+        <button class="menu-btn" id="playAgainBtn">Chơi lại</button>
+        <button class="menu-btn" id="backToMenuWin">Về menu</button>
+    </div>
+    <div id="ui" style="display:none">
+        <div>Điểm: <span id="score">0</span></div>
+        <div>Mạng: <span id="lives">3</span></div>
+        <div>Boss tiếp: <span id="nextBoss">300</span></div>
+    </div>
+    <div id="dialogue">
+        <div id="bossText"></div>
+        <div id="question"></div>
+        <button id="opt1"></button>
+        <button id="opt2"></button>
+        <button id="opt3"></button>
+        <button id="opt4"></button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
