@@ -300,16 +300,16 @@ function spawnSpecialBoss() {
 
 // Phase reward descriptions
 const PHASE_REWARDS = [
-    'Phần thưởng: Nâng đạn lên 100 viên!',
+    'Phần thưởng: Tăng đạn thêm 20 viên!',
     'Phần thưởng: Bắn 2 tia song song!',
-    'Phần thưởng: Nâng đạn lên 150 viên!',
+    'Phần thưởng: Tăng đạn lên 30 viên!',
     'Phần thưởng: Bắn 3 tia tỏa ra!'
 ];
 
 function applyPhaseReward(phaseIndex) {
     switch (phaseIndex) {
         case 0: // Phase 1: ammo cap → 100
-            maxAmmo = 100;
+            maxAmmo = maxAmmo + 20;
             ammo = maxAmmo;
             isReloading = false;
             break;
@@ -317,7 +317,7 @@ function applyPhaseReward(phaseIndex) {
             bulletPattern = 2;
             break;
         case 2: // Phase 3: ammo cap → 150
-            maxAmmo = 150;
+            maxAmmo = maxAmmo + 30;
             ammo = maxAmmo;
             isReloading = false;
             break;
@@ -364,14 +364,10 @@ function defeatQuizBoss(isCorrect) {
             btn.style.background = '';
             btn.style.pointerEvents = '';
         });
-        if (isCorrect) {
-            bossIndex++;
-            nextMilestone = MILESTONES[bossIndex] ?? (nextMilestone + 200);
-            nextBossEl.textContent = nextMilestone;
-        } else {
-            nextMilestone = score + 50;
-            nextBossEl.textContent = nextMilestone;
-        }
+        // Luôn skip sang phase tiếp theo (đúng hay sai đều qua phase mới)
+        bossIndex++;
+        nextMilestone = MILESTONES[bossIndex] ?? (nextMilestone + 200);
+        nextBossEl.textContent = nextMilestone;
         // Spawn 1 supply crate per quiz phase
         if (!supplyCrateSpawnedThisPhase) {
             supplyCrateSpawnedThisPhase = true;
