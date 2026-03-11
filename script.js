@@ -289,8 +289,8 @@ function spawnSpecialBoss() {
         y: -160,
         width: 160,
         height: 160,
-        health: 120,
-        maxHealth: 120,
+        health: 300,
+        maxHealth: 300,
         speedY: 0.9,
         speedX: (Math.random() > 0.5 ? 1.4 : -1.4),
         isSpecial: true
@@ -671,7 +671,7 @@ function draw() {
         ctx.fillStyle = '#ffff00';
         ctx.font = 'bold 18px Arial';
         ctx.textAlign = 'center';
-        ctx.fillText('BOSS CUỐN!', boss.x + boss.width / 2, boss.y + boss.height + 28);
+        ctx.fillText('BOSS', boss.x + boss.width / 2, boss.y + boss.height + 28);
     }
 
     // Draw ammo HUD in bottom-left corner
