@@ -76,7 +76,7 @@ button:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(180deg, #0a0a1a 0%, #1a0a2a 100%);
+    background: url('89425237-97c2-4eaa-ab65-ffa7dbf00b4c.png') center/cover no-repeat;
     z-index: 200;
 }
 
@@ -185,7 +185,8 @@ button:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    z-index: 300;       /* ← sửa ở đây: lớn hơn z-index của #menu (200) */
+    z-index: 300;
+    /* ← sửa ở đây: lớn hơn z-index của #menu (200) */
 }
 
 .overlay h2 {
@@ -209,7 +210,8 @@ button:hover {
 }
 
 .intro-overlay {
-    display: flex; /* Hiện ngay khi load (ghi đè .overlay) */
+    display: flex;
+    /* Hiện ngay khi load (ghi đè .overlay) */
     background: rgba(0, 0, 0, 0.95);
     z-index: 250;
 }
