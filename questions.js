@@ -10,38 +10,14 @@
 // ============================================
 
 const QUESTION_POOL = [
-    // === TOÁN HỌC ===
-    { question: "2 + 2 bằng mấy?", options: ["3", "4", "5", "6"], correct: 1 },
-    { question: "5 × 6 bằng bao nhiêu?", options: ["25", "30", "35", "36"], correct: 1 },
-    { question: "100 ÷ 4 bằng?", options: ["20", "25", "30", "50"], correct: 1 },
-    { question: "Số nguyên tố nhỏ nhất là?", options: ["0", "1", "2", "3"], correct: 2 },
-    { question: "√144 bằng bao nhiêu?", options: ["10", "11", "12", "14"], correct: 2 },
-    { question: "3² + 4² bằng?", options: ["20", "25", "30", "49"], correct: 1 },
+    { question: "Theo C. Mác, điều kiện tiên quyết nào để sức lao động có thể trở thành hàng hóa?", options: ["Sự xuất hiện của thị trường chứng khoán và vốn.", "Người lao động được tự do về thân thể và không có tư liệu sản xuất.", "Người lao động có trình độ kỹ thuật và kỹ năng chuyên môn cao.", "Sản xuất hàng hóa đạt đến trình độ xã hội hóa cao."], correct: 1 },
+    { question: "Giá trị của hàng hóa sức lao động được đo lường gián tiếp thông qua yếu tố nào?", options: ["Lượng giá trị các tư liệu sinh hoạt cần thiết để tái sản xuất sức lao động", "Tổng lợi nhuận mà nhà tư bản thu được sau một chu kỳ sản xuất.", "Số lượng máy móc mà người công nhân vận hành.", "Năng suất lao động trung bình của toàn xã hội."], correct: 0 },
+    { question: "Tích lũy tư bản là gì?", options: ["Sự tiêu dùng toàn bộ giá trị thặng dư của nhà tư bản", "Sự chuyển hóa một phần giá trị thặng dư thành tư bản phụ thêm", "Sự mở rộng thị trường tiêu thụ hàng hóa", "Sự gia tăng tiền lương cho người lao động"], correct: 1 },
+    { question: "Nguồn gốc duy nhất của tích lũy tư bản là gì?", options: ["Lao động sống", "Tư bản bất biến", "Giá trị thặng dư", "Tiền công của công nhân"], correct: 2 },
+    { question: "Nhân tố nào sau đây ảnh hưởng đến quy mô tích lũy tư bản?", options: ["Số lượng doanh nghiệp trong nền kinh tế", "Trình độ khai thác sức lao động", "Mức sống của toàn xã hội", "Chính sách phúc lợi xã hội"], correct: 1 },
+    { question: "Cấu tạo hữu cơ của tư bản là tỷ lệ giữa:", options: ["Tư bản cố định và tư bản lưu động", "Tư bản sử dụng và tư bản tiêu dùng", "Tư bản bất biến (c) và tư bản khả biến (v)", "Giá trị thặng dư và tiền công"], correct: 2 },
+    { question: "Tập trung tư bản là gì?", options: ["Tăng quy mô tư bản cá biệt bằng cách tư bản hóa giá trị thặng dư", "Hợp nhất nhiều tư bản cá biệt thành một tư bản lớn hơn", "Tăng năng suất lao động xã hội", "Giảm chi phí sản xuất"], correct: 1 },
 
-    // === ĐỊA LÝ ===
-    { question: "Thủ đô Việt Nam là?", options: ["TP.HCM", "Hà Nội", "Đà Nẵng", "Huế"], correct: 1 },
-    { question: "Sông dài nhất Việt Nam là?", options: ["Sông Hồng", "Sông Đồng Nai", "Sông Mê Kông", "Sông Đà"], correct: 2 },
-    { question: "Đỉnh núi cao nhất Việt Nam là?", options: ["Fansipan", "Tây Côn Lĩnh", "Phu Si Lung", "Ngọc Linh"], correct: 0 },
-    { question: "Việt Nam có bao nhiêu tỉnh thành?", options: ["61", "63", "64", "65"], correct: 1 },
-
-    // === KHOA HỌC ===
-    { question: "Hành tinh lớn nhất hệ Mặt Trời?", options: ["Trái Đất", "Sao Hỏa", "Sao Mộc", "Sao Kim"], correct: 2 },
-    { question: "Nước có công thức hóa học là?", options: ["CO₂", "H₂SO₄", "H₂O", "NaCl"], correct: 2 },
-    { question: "Ánh sáng Mặt Trời đến Trái Đất mất khoảng?", options: ["8 giây", "8 phút", "80 phút", "8 giờ"], correct: 1 },
-    { question: "Nguyên tố hóa học nào ký hiệu là Fe?", options: ["Nhôm", "Đồng", "Sắt", "Kẽm"], correct: 2 },
-    { question: "Khí nào chiếm nhiều nhất trong khí quyển?", options: ["Oxy", "Nitơ", "CO₂", "Hydro"], correct: 1 },
-    { question: "DNA là viết tắt của?", options: ["Dinitro Acid", "Deoxyribonucleic Acid", "Dynamic Nuclear Acid", "Dual Nucleus Acid"], correct: 1 },
-
-    // === LỊCH SỬ ===
-    { question: "Việt Nam giành độc lập năm nào?", options: ["1944", "1945", "1946", "1954"], correct: 1 },
-    { question: "Ai là vị vua đầu tiên triều Nguyễn?", options: ["Minh Mạng", "Gia Long", "Tự Đức", "Thiệu Trị"], correct: 1 },
-    { question: "Chiến thắng Điện Biên Phủ diễn ra năm?", options: ["1953", "1954", "1955", "1956"], correct: 1 },
-
-    // === VĂN HÓA CHUNG ===
-    { question: "Quốc hoa của Việt Nam là hoa gì?", options: ["Hoa mai", "Hoa sen", "Hoa đào", "Hoa lan"], correct: 1 },
-    { question: "Tiếng Việt thuộc ngữ hệ nào?", options: ["Hán-Tạng", "Nam Á", "Tai-Kadai", "Nam Đảo"], correct: 1 },
-    { question: "1 thế kỷ bằng bao nhiêu năm?", options: ["10", "50", "100", "1000"], correct: 2 },
-    { question: "Trái Đất quay quanh Mặt Trời mất bao lâu?", options: ["30 ngày", "365 ngày", "24 giờ", "7 ngày"], correct: 1 },
 ];
 
 // Dialogue cho mỗi giai đoạn boss quiz

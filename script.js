@@ -60,13 +60,10 @@ let boss = null;
 let supplyCrates = [];
 let supplyCrateSpawnedThisPhase = false;
 
-const bossQuestions = [
-    { dialogue: "Boss kiến thức đầu tiên! Trả lời đúng để đuổi nó đi.", question: "2 + 2 bằng mấy?", options: ["3", "4", "5", "6"], correct: 1 },
-    { dialogue: "Boss thứ hai xuất hiện! Hãy trả lời chính xác.", question: "Thủ đô Việt Nam là?", options: ["TP.HCM", "Hà Nội", "Đà Nẵng", "Huế"], correct: 1 },
-    { dialogue: "Boss thứ ba! Đừng để sai nhé.", question: "Hành tinh lớn nhất hệ Mặt Trời?", options: ["Trái Đất", "Sao Hỏa", "Sao Mộc", "Sao Kim"], correct: 2 },
-    { dialogue: "Boss thứ tư! Câu hỏi cuối trước khi nó biến đổi.", question: "Nước có công thức hóa học là?", options: ["CO₂", "H₂SO₄", "H₂O", "NaCl"], correct: 2 },
-    { dialogue: "Boss đã BIẾN ĐỔI! Từ giờ bắn trực tiếp – cẩn thận đạn của ta!", question: "(không dùng)", options: [], correct: -1 }
-];
+// Câu hỏi ngẫu nhiên - được tạo mới mỗi ván chơi từ QUESTION_POOL (questions.js)
+let bossQuestions = generateQuizQuestions();
+// Thêm phase 5 (boss đặc biệt, không dùng quiz)
+bossQuestions.push({ dialogue: "Boss đã BIẾN ĐỔI! Từ giờ bắn trực tiếp – cẩn thận đạn của ta!", question: "(không dùng)", options: [], correct: -1 });
 
 for (let i = 0; i < 120; i++) {
     stars.push({
@@ -140,6 +137,9 @@ document.getElementById('startBtn').onclick = () => {
     pauseBtn.style.display = 'flex';
     resumeBtn.style.display = 'none';
     uiEl.style.display = 'block';
+    // Tạo câu hỏi ngẫu nhiên mới cho ván chơi này
+    bossQuestions = generateQuizQuestions();
+    bossQuestions.push({ dialogue: "Boss đã BIẾN ĐỔI! Từ giờ bắn trực tiếp – cẩn thận đạn của ta!", question: "(không dùng)", options: [], correct: -1 });
     gameState = 'playing';
 };
 document.getElementById('settingsBtn').onclick = () => { menuEl.style.display = 'none'; settingsOverlay.style.display = 'flex'; };
@@ -235,6 +235,10 @@ function backToMenu() {
     livesEl.textContent = 3;
     nextBossEl.textContent = 300;
 
+    // Tạo câu hỏi ngẫu nhiên mới
+    bossQuestions = generateQuizQuestions();
+    bossQuestions.push({ dialogue: "Boss đã BIẾN ĐỔI! Từ giờ bắn trực tiếp – cẩn thận đạn của ta!", question: "(không dùng)", options: [], correct: -1 });
+
     // Quay lại menu + nhạc nền
     menuEl.style.display = 'flex';
     bgMusic.currentTime = 0;
@@ -272,6 +276,9 @@ function resetAndPlay() {
     scoreEl.textContent = 0;
     livesEl.textContent = 3;
     nextBossEl.textContent = 300;
+    // Tạo câu hỏi ngẫu nhiên mới khi retry
+    bossQuestions = generateQuizQuestions();
+    bossQuestions.push({ dialogue: "Boss đã BIẾN ĐỔI! Từ giờ bắn trực tiếp – cẩn thận đạn của ta!", question: "(không dùng)", options: [], correct: -1 });
     pauseUI.style.display = 'flex';
     pauseBtn.style.display = 'flex';
     resumeBtn.style.display = 'none';
