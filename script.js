@@ -42,15 +42,15 @@ const player = { x: 380, y: 480, width: 60, height: 70, speed: 5.5 };
 
 // Preload sprite images
 const playerImg = new Image();
-playerImg.src = 'ChatGPT Image 17_00_31 8 thg 3, 2026.png';
+playerImg.src = 'ChatGPT Image 17_00_31 8 thg 3, 2026.png?v=1.0';
 const bossImg = new Image();
-bossImg.src = 'ChatGPT Image 17_13_41 8 thg 3, 2026_wipe_bg.png';
+bossImg.src = 'ChatGPT Image 17_13_41 8 thg 3, 2026_wipe_bg.png?v=1.0';
 const obstacleImg = new Image();
-obstacleImg.src = 'ChatGPT Image 17_23_01 8 thg 3, 2026_wipe_bg.png';
+obstacleImg.src = 'ChatGPT Image 17_23_01 8 thg 3, 2026_wipe_bg.png?v=1.0';
 const bossBulletImg = new Image();
-bossBulletImg.src = 'ChatGPT Image 20_04_55 8 thg 3, 2026_wipe_bg.png';
+bossBulletImg.src = 'ChatGPT Image 20_04_55 8 thg 3, 2026_wipe_bg.png?v=1.0';
 const supplyCrateImg = new Image();
-supplyCrateImg.src = 'ChatGPT Image 20_13_38 8 thg 3, 2026_wipe_bg.png';
+supplyCrateImg.src = 'ChatGPT Image 20_13_38 8 thg 3, 2026_wipe_bg.png?v=1.0';
 
 let bullets = [];
 let bossBullets = [];
